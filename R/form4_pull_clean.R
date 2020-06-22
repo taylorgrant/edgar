@@ -197,13 +197,16 @@ get_form4_disclosures <- function(date) {
   
 }
 
-library(tidyverse)  
 
-date <- seq.Date(as.Date("2019-07-15"), as.Date("2019-07-31"), "days")
-dates <- tibble(date = date) %>%
-  mutate(dow = lubridate::wday(date, label = TRUE)) %>%
-  filter(!dow %in% c("Sat", "Sun")) %>%
-  pull(date)
+# example  ----------------------------------------------------------------
+
+# library(tidyverse)  
+
+# date <- seq.Date(as.Date("2020-06-13"), as.Date("2020-06-20"), "days")
+# dates <- tibble(date = date) %>%
+#   mutate(dow = lubridate::wday(date, label = TRUE)) %>%
+#   filter(!dow %in% c("Sat", "Sun")) %>%
+#   pull(date)
 # 
 # dates %>%
 #   walk(get_form4_disclosures)
