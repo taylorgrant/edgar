@@ -22,4 +22,9 @@ Data pulled:
 - division (based on SIC codes)
 - access_number (filing number with SEC)
 
-_Reminder:_ each transaction will pull in at least two CIK numbers, one for the insider, the other for the company. Deduplicate using `clean_form4()` so as to not overstate the daily transactions. 
+### Sample Output
+
+|cik     |filing_date         |trade_date |stock_ticker |company_name                 |insider_name    |insider_title |trade_type | price| quantity|     owned|     value|type |sic  | delta_owned|industry               |division                            |access_number        |
+|:-------|:-------------------|:----------|:------------|:----------------------------|:---------------|:-------------|:----------|-----:|--------:|---------:|---------:|:----|:----|-----------:|:----------------------|:-----------------------------------|:--------------------|
+|1324410 |2017-07-27 16:38:04 |2017-07-25 |GBNK         |Guaranty Bancorp             |Goss Cathy P    |EVP, CCO      |S - Sale   | 26.82|    -3793|  4225.392| -101728.3|D    |6022 |  -0.4730375|State Commercial Banks |Finance, Insurance, And Real Estate |0001179110-17-010737 |
+|1231996 |2019-11-26 09:43:50 |2019-11-22 |EFSI         |EAGLE FINANCIAL SERVICES INC |GILPIN THOMAS T |Director      |S - Sale   | 31.50|      -13| 19607.000|    -409.5|D    |6022 |  -0.0006626|State Commercial Banks |Finance, Insurance, And Real Estate |0000880641-19-000088 |
