@@ -4,7 +4,7 @@ Using the `edgar` package to pull in daily Form 4 disclosures made to the SEC. I
 
 Filings are made every non-holiday Monday through Friday. 
 
-Data pulled: 
+### Data pulled: 
 - CIK number
 - filing_date
 - trade_date
