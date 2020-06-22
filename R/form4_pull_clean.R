@@ -3,7 +3,11 @@
 get_form4_disclosures <- function(date) {
   
   pacman::p_load(tidyverse, edgar, here, glue, janitor, qdapRegex, progress)
+  # function to get filings for specific date
   source(here('R', "getFilingsLimited.R"))
+  # functions to de-dup and clean the data 
+  source(here('R', 'clean_form4.R'))
+  
   # load contextual data ----------------------------------------------------
   
   trade_table <- tibble(code = c("P", "S", "A", "D", "G",
@@ -188,7 +192,10 @@ get_form4_disclosures <- function(date) {
   disclosures <- disclosures %>% 
     reduce(bind_rows)
   
-  saveRDS(disclosures, glue(here("data", "disclosures","form4_disclosure_{date}.RDS")))
+  ## clean up based on CIK, insider title, and stock symbol
+  tmp_disclosures <- clean_form4(disclosures)
+  
+  saveRDS(tmp_disclosures, glue(here("data", "disclosures","form4_disclosure_{date}.RDS")))
   
   ## if want to delete files... ## 
   # unlink(here("Daily Indexes"), recursive = TRUE)
